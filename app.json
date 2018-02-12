@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "to-do",
+    "name": "To Do",
     "description": "This project is really great.",
     "slug": "to-do",
     "privacy": "public",
@@ -19,3 +19,4 @@
     }
   }
 }
+ 
