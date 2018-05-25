@@ -45,10 +45,16 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     ...Platform.select({
       ios: {
-        shadowColor:"rgb(50, 50, 50)"
+        shadowColor:"rgb(50, 50, 50)",
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        shadowOffset: {
+          height: -1,
+          width: 0
+        }
       },
       android: {
-
+        elevation: 100
       }
     })
   },
