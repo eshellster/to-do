@@ -10,9 +10,9 @@ export default class ToDo extends Component {
 		return (
 			<View style={styles.container}>
 				<TouchableOpacity>
-					<View style={style.circle} />
+					<View style={styles.circle} />
 				</TouchableOpacity>
-				<Text style={style.text}>Hello I'm a To Do</Text>
+				<Text style={styles.text}>Hello I'm a To Do</Text>
 			</View>
 		);
 	}
@@ -25,9 +25,15 @@ const styles = StyleSheet.create({
 		borderBottomWidth: StyleSheet.hairlineWidth,
 		flexDirection: 'row'
 	},
+	circle: {
+		width: 30,
+		height: 30,
+		borderRadius: 15,
+		backgroundColor: 'red'
+	},
 	text: {
 		fontWeight: '600',
 		fontSize: 20,
-		marginVerical
+		marginVertical: 20
 	}
 });
