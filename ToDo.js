@@ -22,14 +22,15 @@ export default class ToDo extends Component {
 					{isEditing ? (
 						<TextInput
 							style={[
-								styles.input,
 								styles.text,
+								styles.input,
 								isCompleted ? styles.completedText : styles.uncompletedText
 							]}
 							value={toDoValue}
 							multiline={true}
 							onChangeText={this._controllInput}
 							returnKeyType={'done'}
+							onBlur={this._finishEditing}
 						/>
 					) : (
 						<Text style={[ styles.text, isCompleted ? styles.completedText : styles.uncompletedText ]}>
