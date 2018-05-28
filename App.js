@@ -52,7 +52,6 @@ export default class App extends React.Component {
 		});
 	};
 
-	// 입력란을 깨끗이 지워 다음 입력을 준비
 	_addToDo = () => {
 		const { newToDo } = this.state;
 		if (newToDo !== '') {
@@ -66,6 +65,15 @@ export default class App extends React.Component {
 						createdAt: Date.now()
 					}
 				};
+				const newState = {
+					...prevState,
+					newToDo: '',
+					toDos: {
+						...prevState.toDos,
+						...newToDoObject
+					}
+				};
+				return { ...newState };
 			});
 		}
 	};
