@@ -40,7 +40,7 @@ export default class App extends React.Component {
 							<ToDo
 								key={toDo.id}
 								deleteToDo={this._deleteToDo}
-								uncompleteToDo={this.uncompleteToDo}
+								uncompleteToDo={this._uncompleteToDo}
 								completeToDo={this._completeToDo}
 								{...toDo}
 							/>
