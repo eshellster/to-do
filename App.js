@@ -17,9 +17,6 @@ export default class App extends React.Component {
 	};
 	render() {
 		const { newToDo, loadedToDos, toDos } = this.state;
-		console.log('====================================');
-		console.log(toDos);
-		console.log('====================================');
 		if (!loadedToDos) {
 			return <AppLoading />;
 		}
@@ -40,7 +37,13 @@ export default class App extends React.Component {
 					/>
 					<ScrollView contentContainerStyle={styles.toDos}>
 						{Object.values(toDos).map((toDo) => (
-							<ToDo key={toDo.id} {...toDo} deleteToDo={this._deleteToDo} />
+							<ToDo
+								key={toDo.id}
+								deleteToDo={this._deleteToDo}
+								uncompleteToDo={this.uncompleteToDo}
+								completeToDo={this._completeToDo}
+								{...toDo}
+							/>
 						))}
 					</ScrollView>
 				</View>
@@ -82,6 +85,36 @@ export default class App extends React.Component {
 				return { ...newState };
 			});
 		}
+	};
+	_uncompleteToDo = (id) => {
+		this.setState((prevState) => {
+			const newState = {
+				...prevState,
+				toDos: {
+					...prevState.toDos,
+					[id]: {
+						...prevState.toDos[id],
+						isCompleted: false
+					}
+				}
+			};
+			return { ...newState };
+		});
+	};
+	_completeToDo = (id) => {
+		this.setState((prevState) => {
+			const newState = {
+				...prevState,
+				toDos: {
+					...prevState.toDos,
+					[id]: {
+						...prevState.toDos[id],
+						isCompleted: true
+					}
+				}
+			};
+			return { ...newState };
+		});
 	};
 	_deleteToDo = (id) => {
 		this.setState((prevState) => {
